@@ -1,0 +1,18 @@
+Basic file structure:
+
+Pages:
+    Login  
+    Sign Up 
+    Basics 
+        Take a test 
+        Practice
+    Challenges
+        Direct Problem
+        Puzzles
+             
+
+Basic concept:
+    Able to take practice problemsets
+    Responses will be recorded 
+
+
