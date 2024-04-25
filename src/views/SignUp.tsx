@@ -27,7 +27,7 @@ export default function SignUp( { } : SignUpProps ) {
         } else {
             console.log(response.data)
             let newUser = response.data!;
-            console.log(`Congrats! ${newUser.username} has been created! Current password is ${newUser.password}`)
+            console.log(`Congrats! ${newUser.username} has been created!`)
         }
     }
 

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { AllScoresType, BasicProblemType, LoginFormDataType, QuizProblemsType, SignUpFormDataType, UserDictType } from "../types";
+import { AllScoresType, BasicProblemType, HighScoresType, LoginFormDataType, QuizProblemsType, SignUpFormDataType, UserDictType } from "../types";
 
 // Localhost url
 const baseURL: string = "http://localhost:5555"
@@ -111,11 +111,11 @@ async function submitProblems(quiz:QuizProblemsType, token:string): Promise<APIR
 }
 
 
-async function getAllScores(): Promise<APIResponse<AllScoresType>> {
+async function getHighscores(): Promise<APIResponse<HighScoresType[]>> {
     let data;
     let error;
     try {
-        const response = await apiClientNoAuth().get('/all-scores');
+        const response = await apiClientNoAuth().get('/highscores');
         data = response.data;
     } catch (err) {
         if (axios.isAxiosError(err)) {
@@ -150,4 +150,4 @@ async function getHome(): Promise<APIResponse<BasicProblemType>> {
 
 
 
-export { signUp, login , getHome, getProblems, submitProblems, getAllScores }
+export { signUp, login , getHome, getProblems, submitProblems, getHighscores }

@@ -4,8 +4,8 @@ import SignUp from "./views/SignUp";
 import Practice from "./views/Practice";
 import Login from "./views/Login";
 import Quiz from "./views/Quiz/Quiz";
-import Home from "./views/Home";
 import Navigation from "./components/Navigation";
+import HighScores from "./views/HighScores";
 
 function App() {
     const navigate = useNavigate();
@@ -21,7 +21,7 @@ function App() {
             <Navigation />
             <h1>Welcome</h1>
             <Routes>
-                <Route path='/' element={<Home />} />
+                <Route path='/' element={<HighScores />} />
                 <Route path='/signup' element={<SignUp />} />
                 <Route path='/login' element={<Login handleLogOut={handleLogOut} />} />
                 <Route path='/practice' element={<Practice />} />

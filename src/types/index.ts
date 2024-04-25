@@ -1,8 +1,6 @@
 export type UserDictType = {
     id: number,
     username: string,
-    password: string,
-    token: string,
     quizzes: QuizDictType[]
 }
 
@@ -46,4 +44,13 @@ export type ScoreType = {
     username: string,
     correct: number,
     attempted: number
+}
+
+export type HighScoresType = {
+    'user': string,
+    'totalCorrect' : number,
+    'totalQuestions' : number,
+    'totalAttempted' : number,
+    'numQuizzes' : number,
+    'points' : number
 }
