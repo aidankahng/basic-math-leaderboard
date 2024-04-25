@@ -1,12 +1,14 @@
 import { useState } from "react"
 import { signUp } from "../lib/apiWrapper"
 import { SignUpFormDataType } from "../types"
+import { useNavigate } from "react-router-dom"
 
 type SignUpProps = {
 
 }
 
 export default function SignUp( { } : SignUpProps ) {
+    const navigate = useNavigate();
 
     const [signUpFormData, setSignUpFormData] = useState<SignUpFormDataType>({
         username: '',
@@ -28,19 +30,31 @@ export default function SignUp( { } : SignUpProps ) {
             console.log(response.data)
             let newUser = response.data!;
             console.log(`Congrats! ${newUser.username} has been created!`)
+            navigate('/')
         }
     }
 
-    return (
-        <>
-        <h2>Sign Up Here</h2>
-        <form onSubmit={handleFormSubmit}>
-            <p>Username: <input type="text" name="username" placeholder="username" value={signUpFormData.username} onChange={handleInputChange} /> </p>
-            <p>Password: <input type="password" name="password" placeholder="password" value={signUpFormData.password} onChange={handleInputChange} /> </p>
-            <p>Confirm Password: <input type="password" name="confirmPassword" placeholder="password" value={signUpFormData.confirmPassword} onChange={handleInputChange} /> </p>
-            <button type="submit">Create New Account</button>
-            
-        </form>
-        </>
-    )
+    if (localStorage.getItem('token')) {
+        return (
+            <>
+            <div className="main">
+                <p>You are already logged in.</p>
+            </div>
+            </>
+        )
+    } else {
+        return (
+            <>
+            <div className="main">
+            <h2>Sign Up Here</h2>
+            <form onSubmit={handleFormSubmit}>
+                <p>Username: <input type="text" name="username" placeholder="username" value={signUpFormData.username} onChange={handleInputChange} /> </p>
+                <p>Password: <input type="password" name="password" placeholder="password" value={signUpFormData.password} onChange={handleInputChange} /> </p>
+                <p> Confirm: <input type="password" name="confirmPassword" placeholder="password" value={signUpFormData.confirmPassword} onChange={handleInputChange} /> </p>
+                <button type="submit">Create New Account</button>
+            </form>
+            </div>
+            </>
+        )
+    }
 }

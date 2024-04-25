@@ -1,10 +1,110 @@
 * {
     margin: 0px;
     box-sizing: border-box;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #2e1866;
-    color: #dcd3f2;
+    background: linear-gradient(to right,#7164e6, #7c83cf, #7164e6);;
+    color: #1a2533;
+    
 }
 
+button {
+    background-color: #168f30;
+    border: none;
+    border-radius: 15px;
+    height: 30px;
+    padding: 4px 10px;
+    margin: 5px 10px;
+}
+
+button:hover {
+    background-color: #49a869;
+    box-shadow: 1px 2px 1px #6b5f3d;
+}
+
+select {
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    margin: 5px 10px;
+    font-size: 1.25rem;
+}
+
+input {
+    border-radius: 5px;
+    margin: 5px 10px;
+}
+
+
+.main-grid {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-rows: 0.4fr 6fr 2fr 4fr;
+    grid-template-areas: 
+    "nav nav nav"
+    ". main ."
+    ". col1 ."
+    ". col2 .";
+    width: 100%;
+    min-height: 100vh;
+    max-height: 150vh;
+}
+
+.link {
+    color: black;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #dcd9fc;
+}
+
+.nav {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 30px;
+}
+
+.col1 {
+    grid-area: col1;
+}
+
+.col2 {
+    grid-area: col2;
+}
+
+.main {
+    grid-area: main;
+}
+
+
+@media (min-width: 800px) {
+    .main-grid {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: 1fr 3fr 4fr 3fr 1fr;
+        grid-template-rows: 0.4fr 5fr 1fr;
+        grid-template-areas: 
+        "nav nav nav nav nav"
+        ". col1 main col2 ."
+        ". col1 main col2 .";
+        width: 100%;
+        min-height: 100vh;
+        max-height: 150vh;
+    }
+}
+
+
+.card {
+    border-radius: 10px;
+    border-left: #1a2533 double;
+    border-right: #1a2533 double;
+    margin: 20px 0px;
+    padding: 10px;
+}

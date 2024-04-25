@@ -28,10 +28,12 @@ export default function Practice() {
 
     return (
         <>
-        <h1>Random Practice Problem</h1>
-        <p>{displayQuestion.prompt}</p>
-        <p>{displayQuestion.answer}</p>
-        <button onClick={handleButtonPress}>New Question</button>
+        <div className="main">
+            <h1>Random Practice Problem</h1>
+            <p>{displayQuestion.prompt}</p>
+            <p>{displayQuestion.answer}</p>
+            <button onClick={handleButtonPress}>New Question</button>
+        </div>
         </>
     )
 }

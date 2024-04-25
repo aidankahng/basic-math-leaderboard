@@ -44,20 +44,24 @@ export default function Login( { handleLogOut } : LoginProps ) {
     if (localStorage.getItem('token')) {
         return (
             <>
+            <div className="main">
             <h3>You are already logged in as: {localStorage.getItem('username')}</h3>
             <button onClick={handleLogOut} >Log Out</button>
+            </div>
             </>
         )
     }
 
     return (
         <>
+        <div className="main">
         <h2>Login Here</h2>
         <form onSubmit={handleFormSubmit}>
             <p>Username: <input type="text" placeholder="username" name="username" value={loginFormData.username} onChange={handleInputChange} /></p>
             <p>Password: <input type="password" placeholder="password" name="password" value={loginFormData.password} onChange={handleInputChange} /></p>
             <button type="submit">Log In</button>
         </form>
+        </div>
         </>
     )
 

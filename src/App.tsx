@@ -18,8 +18,8 @@ function App() {
 
     return (
         <>
-            <Navigation />
-            <h1>Welcome</h1>
+            <div className="main-grid">
+            <Navigation handleLogOut={handleLogOut} />
             <Routes>
                 <Route path='/' element={<HighScores />} />
                 <Route path='/signup' element={<SignUp />} />
@@ -27,6 +27,7 @@ function App() {
                 <Route path='/practice' element={<Practice />} />
                 <Route path='/quiz' element={<Quiz />} />
             </Routes>
+            </div>
         </>
     );
 }
