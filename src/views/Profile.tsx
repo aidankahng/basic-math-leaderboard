@@ -75,6 +75,9 @@ export default function Profile() {
             console.warn(response.error)
         } else {
             console.log('SUCCESSFULLY EDITED USER', response.data)
+            if (updateUserData.username) {
+                localStorage.setItem('username', updateUserData.username)
+            }
             navigate('/')
         }
     }
