@@ -4,28 +4,10 @@ import { HighScoresType } from "../types";
 import ScoreCard from "../components/ScoreCard";
 
 
-type ClanHighScoresProps = {
-
-}
-
 export default function ClanHighScores() {
 
     let rank = 0
     const [scores, setScores] = useState<HighScoresType[]>([]);
-
-    const [myScore, setMyScore] = useState<HighScoresType>({
-        user: '',
-        totalCorrect: NaN,
-        totalAttempted: NaN,
-        totalQuestions: NaN,
-        numQuizzes: NaN,
-        points: NaN,
-        message: '',
-        clan: ''
-    })
-
-    const [myRank, setMyRank] = useState<number>(-1)
-
 
     // use useEffect to get highscore data from api
     useEffect(() => {
@@ -35,22 +17,10 @@ export default function ClanHighScores() {
             if (response.data){
                 console.log(response.data);
                 setScores(response.data!);
-                findMyScore();
             }
         }
         fetchScores();
     },[])
-
-
-    const findMyScore = () => {
-        for (let i = 0; i < scores.length; i++) {
-            if (scores[i].user === localStorage.getItem('username')) {
-                setMyScore(scores[i])
-                setMyRank(i+1)
-                break
-            }
-        }
-    }
 
 
 

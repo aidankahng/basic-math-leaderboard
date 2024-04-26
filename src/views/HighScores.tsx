@@ -5,10 +5,6 @@ import ScoreCard from "../components/ScoreCard";
 import Tip from "../components/Tip";
 
 
-type HighScoresProps = {
-
-}
-
 export default function HighScores() {
 
     let rank = 0

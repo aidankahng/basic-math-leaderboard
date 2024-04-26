@@ -79,7 +79,11 @@ export type MyScoresType = HighScoresType & {
 }
 
 
-export const Categories = {
+export type CategoriesType = {
+    [key: string]: string
+}
+
+export const Categories:CategoriesType = {
     '1': 'Basic Addition',
     '2': '2-Digit Addition',
     '3': '3-Digit Addition',

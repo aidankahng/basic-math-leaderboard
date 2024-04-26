@@ -3,10 +3,6 @@ import { getRandom } from "../lib/apiWrapper";
 import { BasicProblemType } from "../types";
 
 
-type PracticeProps = {
-
-}
-
 export default function Practice() {
 
     const [displayQuestion, setDisplayQuestion] = useState<BasicProblemType>({

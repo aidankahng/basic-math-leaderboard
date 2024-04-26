@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import SignUp from "./views/SignUp";
 import Practice from "./views/Practice";
