@@ -9,7 +9,7 @@ export default function ReviewQuestionCard({ question }: ReviewQuestionCardProps
         <div>
             <h2>{question.prompt}</h2>
             <p>Your Answer: {question.response}</p>
-            <p>Solution: {question.answer}</p>
+            <p>Solution: {Math.round(parseFloat(question.answer)*100)/100}</p>
         </div>
     </div>
 );
