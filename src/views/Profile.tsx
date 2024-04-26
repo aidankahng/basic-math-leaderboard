@@ -91,7 +91,7 @@ export default function Profile() {
             <div style={{display:'flex', justifyContent:'center', gap:'40px', marginBottom:'50px', marginTop:'30px'}}>
                 <div>
                     <h2>Your Stats:</h2>
-                    <h3>Total Points: {userData.points}</h3>
+                    <h3>Total Points: {Math.round(userData.points*100)/100}</h3>
                     <p>Quizzes Submitted: {userData.numQuizzes}</p>
                     <p>Total Questions: {userData.totalQuestions}</p>
                     <p>Total Attempts: {userData.totalAttempted}</p>
@@ -101,7 +101,7 @@ export default function Profile() {
                 <div>
                     <h2>Latest Quiz:</h2>    
                     <h3>Type: {Categories[userData.lastQuiz.category.toString()]} </h3>
-                    <h3>Score: {userData.lastQuiz.score}</h3>
+                    <h3>Score: {Math.round(userData.lastQuiz.score*100)/100}</h3>
                     <p># Questions: {userData.lastQuiz.totalQuestions}</p>
                     <p>Attempted: {userData.lastQuiz.totalAttempted}</p>
                     <p>Correct: {userData.lastQuiz.totalCorrect}</p>
