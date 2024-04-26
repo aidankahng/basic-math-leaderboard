@@ -96,7 +96,7 @@ export default function Profile() {
                     <p>Total Questions: {userData.totalQuestions}</p>
                     <p>Total Attempts: {userData.totalAttempted}</p>
                     <p>Total Correct: {userData.totalCorrect}</p>
-                    <p>Accuracy: {Math.round((userData.totalCorrect / userData.totalAttempted)*1000)/1000}</p>
+                    <p>Accuracy: {Math.round((userData.totalCorrect / userData.totalAttempted)*1000)/10}%</p>
                 </div>
                 <div>
                     <h2 className="sub-title">Latest Quiz:</h2>    
