@@ -57,13 +57,13 @@ export default function HighScores() {
 
     return (
         <>
-            <div className="col1" style={{display:"flex", flexDirection:'column' , alignItems:'center', gap:'20px'}}>
-                <h2>Tips</h2>
+            <div className="col2" style={{display:"flex", flexDirection:'column' , alignItems:'center', gap:'20px'}}>
+                <h2 className="sub-title">Tips</h2>
                 <Tip />
             </div>
         
             <div className="main" style={{gridArea:'main'}}>
-                <h1>The Top Ten:</h1>
+                <h1 className="title">Leaderboard:</h1>
                 <div>
                     {scores.slice(0,10).map((score) => {
                         rank += 1
@@ -71,11 +71,11 @@ export default function HighScores() {
                     })}
                 </div>
             </div>
-            <div className="col2">
+            <div className="col1">
                     {localStorage.getItem('username') 
                     ? <>
-                        <h2>Your Rank:</h2>
-                        {myRank < 0 ? <button onClick={findMyScore}>Check Your Stats</button> : <></>}
+                        <h2 className="sub-title">Your Rank:</h2>
+                        {myRank < 0 ? <button style={{marginTop:'30px'}} onClick={findMyScore}>Check Your Stats</button> : <></>}
                         {myRank > 0 ? <ScoreCard key={myRank} userScore={myScore} rank={myRank}/> : <></>}
                     </> 
                     : <></>}

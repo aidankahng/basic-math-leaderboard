@@ -35,7 +35,7 @@ export default function ClanHighScores() {
             </div>
         
             <div className="main" style={{gridArea:'main'}}>
-                <h1>Your Clan's Leaderboard:</h1>
+                <h1 className="title">Your Clan's Leaderboard:</h1>
                 <div>
                     {scores.slice(0,10).map((score) => {
                         rank += 1

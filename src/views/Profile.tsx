@@ -87,19 +87,19 @@ export default function Profile() {
         <div className="only-main">
             {userData.numQuizzes > 0 &&
             <>
-            <h1>Your Info</h1>
+            <h1 className="title">Your Info</h1>
             <div style={{display:'flex', justifyContent:'center', gap:'40px', marginBottom:'50px', marginTop:'30px'}}>
                 <div>
-                    <h2>Your Stats:</h2>
+                    <h2 className="sub-title">Your Stats:</h2>
                     <h3>Total Points: {Math.round(userData.points*100)/100}</h3>
                     <p>Quizzes Submitted: {userData.numQuizzes}</p>
                     <p>Total Questions: {userData.totalQuestions}</p>
                     <p>Total Attempts: {userData.totalAttempted}</p>
                     <p>Total Correct: {userData.totalCorrect}</p>
-                    <p>Accuracy: {userData.totalCorrect / userData.totalAttempted}</p>
+                    <p>Accuracy: {Math.round((userData.totalCorrect / userData.totalAttempted)*1000)/1000}</p>
                 </div>
                 <div>
-                    <h2>Latest Quiz:</h2>    
+                    <h2 className="sub-title">Latest Quiz:</h2>    
                     <h3>Type: {Categories[userData.lastQuiz.category.toString()]} </h3>
                     <h3>Score: {Math.round(userData.lastQuiz.score*100)/100}</h3>
                     <p># Questions: {userData.lastQuiz.totalQuestions}</p>
@@ -110,26 +110,26 @@ export default function Profile() {
             </>
             }
             <div>
-            <h1>Profile</h1>
+            <h1 className="title">Profile</h1>
             <form action="" onSubmit={handleSubmitEditUser}>
                 <div>
-                    <label htmlFor="">username: </label>
+                    <label className="form-label" htmlFor="">username: </label>
                     <input type="text" name="username" value={updateUserData.username} onChange={handleChangeInput} />
                 </div>
                 <div>
-                    <label htmlFor="">new password: </label>
+                    <label className="form-label" htmlFor="">new password: </label>
                     <input type="password" name='newPassword' value={updateUserData.newPassword} onChange={handleChangeInput} />
                 </div>
                 <div>
-                    <label htmlFor="">Your Words of Wisdom: </label>
-                    <textarea rows={3} cols={28} name='message' value={updateUserData.message} onChange={handleChangeInput}/>
+                    <label className="form-label" htmlFor="">Words of Wisdom: </label>
+                    <textarea rows={3} cols={22} name='message' value={updateUserData.message} onChange={handleChangeInput}/>
                 </div>
                 <div>
-                    <label htmlFor="">Clan Name: </label>
+                    <label className="form-label" htmlFor="">Clan Name: </label>
                     <input type="text" name="clan" value={updateUserData.clan} onChange={handleChangeInput} />
                 </div>
                 <div>
-                    <label htmlFor="">Original Password*:</label>
+                    <label className="form-label" htmlFor="">Original Password*:</label>
                     <input style={{color:'red', backgroundColor:'#ffa2a2'}} type="password" name='password' value={updateUserData.password} onChange={handleChangeInput}/>
                 </div>
                 <p style={{fontSize:'0.7rem'}}>*original password must match to update user</p>

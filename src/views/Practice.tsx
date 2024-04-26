@@ -33,9 +33,10 @@ export default function Practice() {
     return (
         <>
         <div className="main">
-            <h1>Practice Problems</h1>
+            <h1 className="title">Practice Problems</h1>
+            <p style={{fontSize:'0.85rem', fontWeight:'bold'}}>*Questions answered here will not be saved to the leaderboard. For most problems, the box will turn green when the answer is correct!</p>
             <button onClick={handleButtonPress}>New Question</button>
-            <p>{displayQuestion.prompt}</p>
+            <h2>{displayQuestion.prompt}</h2>
             <form onSubmit={handleButtonPress}>
                 <input className="quiz-input" type="text" value={inputValue} onChange={handleInputChange} style={inputValue===displayQuestion.answer && inputValue != '' ? {backgroundColor:'#87ffcd'} : {}} />
             </form>

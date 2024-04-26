@@ -19,7 +19,8 @@ export default function Tip({}: Props) {
     return (
     <>
         <button onClick={()=>{setTipIndex((tipIndex + 1) % tips.length)}}>Next Tip</button>
-        <p>{tips[tipIndex]}</p>
+        <p style={{height:'4rem'}}>{tips[tipIndex]}</p>
+        <div style={{marginBottom:'50px'}}></div>
     </>
     );
 }

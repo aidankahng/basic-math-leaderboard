@@ -55,10 +55,17 @@ export default function Login( { handleLogOut } : LoginProps ) {
     return (
         <>
         <div className="main">
-        <h2>Login Here</h2>
+        <h1 className="title">Login Here</h1>
         <form onSubmit={handleFormSubmit}>
-            <p>Username: <input type="text" placeholder="username" name="username" value={loginFormData.username} onChange={handleInputChange} /></p>
-            <p>Password: <input type="password" placeholder="password" name="password" value={loginFormData.password} onChange={handleInputChange} /></p>
+            <div>
+            <label className="form-label" htmlFor="username">Username:</label>
+            <input type="text" placeholder="username" name="username" value={loginFormData.username} onChange={handleInputChange} />
+            </div>
+            <div>
+            <label className="form-label" htmlFor="password">Password:</label>
+            <input type="password" placeholder="password" name="password" value={loginFormData.password} onChange={handleInputChange} />
+            </div>
+            
             <button type="submit">Log In</button>
         </form>
         </div>

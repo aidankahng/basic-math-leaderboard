@@ -106,28 +106,29 @@ export default function Quiz( {}:QuizProps ) {
         return (
             <>
             <div className="main">
-            <p>Category:
-            <select name="category-select" id="" onChange={handleCategoryChange}>
-                <option value={1}>Basic Addition</option>
-                <option value={2}>2-digit Addition</option>
-                <option value={3}>3-digit Addition</option>
-                <option value={4}>Basic Subtraction</option>
-                <option value={5}>2-digit Subtraction</option>
-                <option value={6}>3-digit Subtraction</option>
-                <option value={7}>Basic Multiplication</option>
-                <option value={8}>2-digit Multiplication</option>
-                <option value={9}>Basic Division</option>
-                <option value={10}>Simplify Division</option>
-                <option value={11}>Arithmetic Sequence</option>
-            </select>
-            Number of Questions:
-            <select name="num-questions-select" id="" onChange={handleNumQuestionsChange}>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-            </select>
-            <button onClick={handleStartQuiz}>START QUIZ</button>
-            </p>
+                <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+                    <p style={{fontSize:'1.5rem', fontWeight:'bold', display:'inline-block'}}>Category:</p>
+                    <select name="category-select" id="" onChange={handleCategoryChange}>
+                        <option value={1}>Basic Addition</option>
+                        <option value={2}>2-digit Addition</option>
+                        <option value={3}>3-digit Addition</option>
+                        <option value={4}>Basic Subtraction</option>
+                        <option value={5}>2-digit Subtraction</option>
+                        <option value={6}>3-digit Subtraction</option>
+                        <option value={7}>Basic Multiplication</option>
+                        <option value={8}>2-digit Multiplication</option>
+                        <option value={9}>Basic Division</option>
+                        <option value={10}>Simplify Division</option>
+                        <option value={11}>Arithmetic Sequence</option>
+                    </select>
+                    <p style={{fontSize:'1.5rem', fontWeight:'bold', display:'inline-block'}}>Number of Questions:</p>
+                    <select name="num-questions-select" id="" onChange={handleNumQuestionsChange}>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                    </select>
+                    <button className="big-button" onClick={handleStartQuiz}>START QUIZ</button>
+                </div>
             </div>
             </>
         )
@@ -149,9 +150,9 @@ export default function Quiz( {}:QuizProps ) {
             : 
             <>
             <div className="main">
-                <h4>The quiz is complete.</h4>
-                <button onClick={handleDisplayResults}>Toggle Review Results</button>
-                <button onClick={handleSubmitQuiz}>Submit Quiz</button>
+                <h2>The quiz is complete.</h2>
+                <button className="big-button" onClick={handleDisplayResults}>Toggle Results</button>
+                <button className="big-button" onClick={handleSubmitQuiz}>Submit Quiz</button>
                 {isDisplayResults 
                 ? <>
                     <p>Equivalent answers are accepted if in simplest form.</p>
