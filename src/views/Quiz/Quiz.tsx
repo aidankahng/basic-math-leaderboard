@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { getProblems, submitProblems } from "../../lib/apiWrapper";
 import { QuizProblemsType } from "../../types";
-import { useNavigate } from "react-router-dom";
 import ReviewQuestionCard from "../../components/ReviewQuestionCard";
 
 type QuizProps = {
@@ -9,7 +8,6 @@ type QuizProps = {
 }
 
 export default function Quiz( {}:QuizProps ) {
-    const navigate = useNavigate();
 
     const [quiz, setQuiz] = useState<QuizProblemsType>({
         userId: NaN,
@@ -71,6 +69,7 @@ export default function Quiz( {}:QuizProps ) {
 
     const handleSubmitQuiz = async (e: React.FormEvent) => {
         e.preventDefault();
+        
         let response = await submitProblems(quiz, localStorage.getItem('token') || '');
         if (response.error) {
             console.warn(response.error)
@@ -89,10 +88,6 @@ export default function Quiz( {}:QuizProps ) {
         }
     }
 
-    const logQuiz = () => {
-        console.log(quiz)
-    }
-
     const handleDisplayResults = () => {
         setisDisplayResults(!isDisplayResults)
     }
@@ -101,7 +96,9 @@ export default function Quiz( {}:QuizProps ) {
     if (!localStorage.getItem('token') || '') {
         return (
             <>
-            <h3>This feature is only available for logged in users</h3>
+            <div className="main">
+                <h3>This feature is only available for logged in users</h3>
+            </div>
             </>
         )
     }
@@ -139,13 +136,14 @@ export default function Quiz( {}:QuizProps ) {
             <>
             {(currentQIndex < quiz.questions.length) 
             ? <form className="main" onSubmit={handleSubmitProblem}>
-                <h3><span style={{fontSize:'0.7rem'}}>[#{currentQIndex+1}]</span> {quiz.questions[currentQIndex].prompt} <input autoFocus type="text" name="value" value={inputValue.value} onChange={handleInputChange} onKeyUp={e => {
+                <h1><span style={{fontSize:'0.7rem'}}>[#{currentQIndex+1}]</span> {quiz.questions[currentQIndex].prompt}</h1>
+                <input className="quiz-input" autoFocus type="text" name="value" value={inputValue.value} onChange={handleInputChange} onKeyUp={e => {
                     if (e.key === 'ArrowLeft') {
                         setCurrentQIndex(Math.max(0,currentQIndex-1))
                     } else if (e.key === 'ArrowRight') {
                         setCurrentQIndex(Math.min(quiz.questions.length-1, currentQIndex+1))
                     }
-                }} /> </h3>
+                }} />
                 {quiz.questions[currentQIndex].response && <><p>Submitted: {quiz.questions[currentQIndex].response}</p></>}
             </form>
             : 
@@ -156,12 +154,12 @@ export default function Quiz( {}:QuizProps ) {
                 <button onClick={handleSubmitQuiz}>Submit Quiz</button>
                 {isDisplayResults 
                 ? <>
+                    <p>Equivalent answers are accepted if in simplest form.</p>
                     {quiz.questions.map((question) => {
                         return (
                             <ReviewQuestionCard key={question.prompt} question={question} />
                         )
                     })}
-                    <p>Note: Answers are accepted as long as they are equivalent to the solution and written as either a decimal or simplified fraction</p>
                 </> : <></>}
             </div>
             </>

@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react"
-import { getHighscores } from "../lib/apiWrapper"
+import { getClanHighscores } from "../lib/apiWrapper"
 import { HighScoresType } from "../types";
 import ScoreCard from "../components/ScoreCard";
-import Tip from "../components/Tip";
 
 
-type HighScoresProps = {
+type ClanHighScoresProps = {
 
 }
 
-export default function HighScores() {
+export default function ClanHighScores() {
 
     let rank = 0
     const [scores, setScores] = useState<HighScoresType[]>([]);
@@ -32,10 +31,11 @@ export default function HighScores() {
     useEffect(() => {
         console.log('inside useEffect')
         async function fetchScores() {
-            const response = await getHighscores();
+            const response = await getClanHighscores(localStorage.getItem('token') || '');
             if (response.data){
-                console.log(response.data)
-                setScores(response.data!)
+                console.log(response.data);
+                setScores(response.data!);
+                findMyScore();
             }
         }
         fetchScores();
@@ -62,12 +62,10 @@ export default function HighScores() {
     return (
         <>
             <div className="col1" style={{display:"flex", flexDirection:'column' , alignItems:'center', gap:'20px'}}>
-                <h2>Tips</h2>
-                <Tip />
             </div>
         
             <div className="main" style={{gridArea:'main'}}>
-                <h1>The Top Ten:</h1>
+                <h1>Your Clan's Leaderboard:</h1>
                 <div>
                     {scores.slice(0,10).map((score) => {
                         rank += 1
@@ -76,13 +74,7 @@ export default function HighScores() {
                 </div>
             </div>
             <div className="col2">
-                    {localStorage.getItem('username') 
-                    ? <>
-                        <h2>Your Rank:</h2>
-                        {myRank < 0 ? <button onClick={findMyScore}>Check Your Stats</button> : <></>}
-                        {myRank > 0 ? <ScoreCard key={myRank} userScore={myScore} rank={myRank}/> : <></>}
-                    </> 
-                    : <></>}
+
             </div>
         </>
     )

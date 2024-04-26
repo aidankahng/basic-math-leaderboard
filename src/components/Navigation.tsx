@@ -1,23 +1,63 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import img1 from "../assets/pyramid_prism_265.jpg";
 
 type NavigationProps = {
-    handleLogOut: () => void
-}
+    handleLogOut: () => void;
+};
 
-export default function Navigation ({handleLogOut}: NavigationProps) {
-    
+export default function Navigation({ handleLogOut }: NavigationProps) {
     return (
-        
-        <div className="nav-container" style={{gridArea:'nav'}}>
+        <div className="nav-container" style={{ gridArea: "nav" }}>
             <nav className="nav">
-                <h3><Link className="link" to='/'>Math Hiscores</Link></h3>
-                <p><Link className="link" to='/practice'>Practice</Link></p>
-                <p><Link className="link" to='/quiz'>Quiz</Link></p>
-                {!localStorage.getItem('token') && <p><Link className="link" to='/login'>Log In</Link></p>}
-                {!localStorage.getItem('token') && <p><Link className="link" to='/signup'>Sign Up</Link></p>}
-                {localStorage.getItem('token') && <p onClick={handleLogOut}><Link className="link" to='/'>Log Out</Link></p>}
+                <Link
+                    className="link"
+                    to="/"
+                    style={{ display: "flex", alignItems: "center" }}
+                >
+                    <img
+                        src={img1}
+                        alt="pyramid_logo"
+                        style={{ height: "50px", margin: "0px" }}
+                    />
+                    <h3>Leaderboard</h3>
+                </Link>
+                <p>
+                    <Link className="link" to="/practice">
+                        Practice
+                    </Link>
+                </p>
+                <p>
+                    <Link className="link" to="/quiz">
+                        Play
+                    </Link>
+                </p>
+
+                <Link className="link" to='/clan'>Clan</Link>
+                <Link className="link" to="/profile">
+                    Profile
+                </Link>
+                {!localStorage.getItem("token") && (
+                    <p>
+                        <Link className="link" to="/login">
+                            Log In
+                        </Link>
+                    </p>
+                )}
+                {!localStorage.getItem("token") && (
+                    <p>
+                        <Link className="link" to="/signup">
+                            Sign Up
+                        </Link>
+                    </p>
+                )}
+                {localStorage.getItem("token") && (
+                    <p onClick={handleLogOut}>
+                        <Link className="link" to="/">
+                            Log Out
+                        </Link>
+                    </p>
+                )}
             </nav>
         </div>
-        
-    )
+    );
 }

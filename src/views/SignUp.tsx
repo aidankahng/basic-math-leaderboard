@@ -47,11 +47,11 @@ export default function SignUp( { } : SignUpProps ) {
             <>
             <div className="main">
             <h2>Sign Up Here</h2>
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={handleFormSubmit} style={{display:'flex', flexDirection:'column', alignItems:'flex-end'}}>
                 <p>Username: <input type="text" name="username" placeholder="username" value={signUpFormData.username} onChange={handleInputChange} /> </p>
                 <p>Password: <input type="password" name="password" placeholder="password" value={signUpFormData.password} onChange={handleInputChange} /> </p>
                 <p> Confirm: <input type="password" name="confirmPassword" placeholder="password" value={signUpFormData.confirmPassword} onChange={handleInputChange} /> </p>
-                <button type="submit">Create New Account</button>
+                <button type="submit" style={{marginRight:'20px'}}>Create New Account</button>
             </form>
             </div>
             </>

@@ -6,13 +6,13 @@
 }
 
 body {
-    background: linear-gradient(to right,#7164e6, #7c83cf, #7164e6);;
+    background-color: #138ceebb;
     color: #1a2533;
     
 }
 
 button {
-    background-color: #168f30;
+    background-color: #65e2b2;
     border: none;
     border-radius: 15px;
     height: 30px;
@@ -21,8 +21,8 @@ button {
 }
 
 button:hover {
-    background-color: #49a869;
-    box-shadow: 1px 2px 1px #6b5f3d;
+    background-color: #87ffcd;
+    box-shadow: 1px 2px 1px #706851;
 }
 
 select {
@@ -36,6 +36,11 @@ select {
 input {
     border-radius: 5px;
     margin: 5px 10px;
+}
+
+textarea {
+    border-radius: 5px;
+    border: solid black 2px; 
 }
 
 
@@ -71,6 +76,10 @@ input {
     gap: 30px;
 }
 
+.nav-container {
+    background-color: #0068D3;
+}
+
 .col1 {
     grid-area: col1;
 }
@@ -81,6 +90,10 @@ input {
 
 .main {
     grid-area: main;
+}
+
+.only-main {
+    grid-area: main / main / col2 / col2;
 }
 
 
@@ -98,8 +111,11 @@ input {
         min-height: 100vh;
         max-height: 150vh;
     }
-}
 
+    .only-main {
+        grid-area: col1 / col1 / col2 / col2;
+    }
+}
 
 .card {
     border-radius: 10px;
@@ -107,4 +123,11 @@ input {
     border-right: #1a2533 double;
     margin: 20px 0px;
     padding: 10px;
+}
+
+.quiz-input {
+    height: 50px;
+    width: fit-content;
+    font-size: 1.4rem;
+    color: rgb(40, 30, 68);
 }

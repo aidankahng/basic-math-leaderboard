@@ -6,6 +6,8 @@ import Login from "./views/Login";
 import Quiz from "./views/Quiz/Quiz";
 import Navigation from "./components/Navigation";
 import HighScores from "./views/HighScores";
+import Profile from "./views/Profile";
+import ClanHighScores from "./views/ClanHighScores";
 
 function App() {
     const navigate = useNavigate();
@@ -26,6 +28,8 @@ function App() {
                 <Route path='/login' element={<Login handleLogOut={handleLogOut} />} />
                 <Route path='/practice' element={<Practice />} />
                 <Route path='/quiz' element={<Quiz />} />
+                <Route path='/profile' element={<Profile />}/>
+                <Route path='/clan' element={<ClanHighScores/>} />
             </Routes>
             </div>
         </>

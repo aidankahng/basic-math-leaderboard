@@ -14,7 +14,8 @@ export default function ScoreCard({ userScore, rank }: ScoreCardProps) {
                     Score: {Math.round(userScore.points*100)/100}
                 </span>
             </h4>
-            
+            <h4>Clan: {userScore.clan}</h4>
+            <p>{userScore.message}</p>
             <p>{userScore.numQuizzes} quizzes taken | {userScore.totalCorrect} correct | {userScore.totalAttempted} attempted</p>
         </div>
     </div>

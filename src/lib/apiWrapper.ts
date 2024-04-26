@@ -1,5 +1,5 @@
 import axios from "axios";
-import { AllScoresType, BasicProblemType, HighScoresType, LoginFormDataType, QuizProblemsType, SignUpFormDataType, UserDictType } from "../types";
+import { BasicProblemType, HighScoresType, LoginFormDataType, MyScoresType, QuizProblemsType, SignUpFormDataType, UpdateUserDataType, UserDictType } from "../types";
 
 // Localhost url
 const baseURL: string = "http://localhost:5555"
@@ -76,6 +76,41 @@ async function login(loginFormData: LoginFormDataType): Promise<APIResponse<stri
     return { data, error };
 }
 
+// This function will get the current user's data from the backend
+async function getMe(token: string): Promise<APIResponse<MyScoresType>> {
+    let data;
+    let error;
+    try {
+        const response = await apiClientTokenAuth(token).get(`/my-scores`);
+        data = response.data;
+    } catch (err) {
+        if (axios.isAxiosError(err)) {
+            error = err.response?.data.error;
+        } else {
+            error = "Something went wrong"
+        }
+    }
+    return { data, error }
+}
+
+// POST endpoint to send data and update a user
+async function updateMe(token: string, updateData:UpdateUserDataType): Promise<APIResponse<UserDictType>> {
+    let data;
+    let error;
+    try {
+        const response = await apiClientTokenAuth(token).post(`/user/edit`, updateData);
+        data = response.data;
+    } catch (err) {
+        if (axios.isAxiosError(err)) {
+            error = err.response?.data.error;
+        } else {
+            error = "Something went wrong"
+        }
+    }
+    return { data, error }
+}
+
+
 // This function will get problems from the api
 async function getProblems(category:number, amount:number, token:string): Promise<APIResponse<QuizProblemsType>> {
     let data;
@@ -110,7 +145,7 @@ async function submitProblems(quiz:QuizProblemsType, token:string): Promise<APIR
     return { data, error }
 }
 
-
+// Gets global scores (No auth)
 async function getHighscores(): Promise<APIResponse<HighScoresType[]>> {
     let data;
     let error;
@@ -127,15 +162,30 @@ async function getHighscores(): Promise<APIResponse<HighScoresType[]>> {
     return { data, error }
 }
 
-
-
-
-// Temporarily being used to get practice problems
-async function getHome(): Promise<APIResponse<BasicProblemType>> {
+// Gets CLAN scores (token auth)
+async function getClanHighscores(token:string): Promise<APIResponse<HighScoresType[]>> {
     let data;
     let error;
     try {
-        const response = await apiClientNoAuth().get('/');
+        const response = await apiClientTokenAuth(token).get('/highscores/clan');
+        data = response.data;
+    } catch (err) {
+        if (axios.isAxiosError(err)) {
+            error = err.response?.data.error;
+        } else {
+            error = "Something went wrong"
+        }
+    }
+    return { data, error }
+}
+
+
+// Get practice problems (no auth)
+async function getRandom(): Promise<APIResponse<BasicProblemType>> {
+    let data;
+    let error;
+    try {
+        const response = await apiClientNoAuth().get('/random');
         data = response.data;
     } catch (err) {
         if (axios.isAxiosError(err)) {
@@ -150,4 +200,4 @@ async function getHome(): Promise<APIResponse<BasicProblemType>> {
 
 
 
-export { signUp, login , getHome, getProblems, submitProblems, getHighscores }
+export { signUp, login , getRandom, getProblems, submitProblems, getHighscores, getClanHighscores , getMe, updateMe }
