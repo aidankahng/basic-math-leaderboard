@@ -48,7 +48,7 @@ export default function Navigation({ handleLogOut }: NavigationProps) {
                 )}
                 {localStorage.getItem("token") && (
                     <p onClick={handleLogOut}>
-                        <Link className="link" to="/">
+                        <Link className="link logout" to="/">
                             Log Out
                         </Link>
                     </p>

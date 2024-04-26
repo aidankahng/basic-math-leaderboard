@@ -3,7 +3,6 @@ import { BasicProblemType, HighScoresType, LoginFormDataType, MyScoresType, Quiz
 
 // Localhost url
 // const baseURL: string = "http://localhost:5555"
-
 // Online Host
 const baseURL: string = "https://basic-math-leaderboard-api.onrender.com/"
 

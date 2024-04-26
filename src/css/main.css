@@ -70,10 +70,18 @@ textarea {
 .link {
     color: black;
     text-decoration: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
 }
 
 .link:hover {
     color: #dcd9fc;
+    text-decoration: underline blue 2px;
+}
+
+.logout:hover {
+    text-decoration: underline wavy red 2px;
 }
 
 .nav {
