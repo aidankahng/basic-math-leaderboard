@@ -2,7 +2,10 @@ import axios from "axios";
 import { BasicProblemType, HighScoresType, LoginFormDataType, MyScoresType, QuizProblemsType, SignUpFormDataType, UpdateUserDataType, UserDictType } from "../types";
 
 // Localhost url
-const baseURL: string = "http://localhost:5555"
+// const baseURL: string = "http://localhost:5555"
+
+// Online Host
+const baseURL: string = "https://basic-math-leaderboard-api.onrender.com/"
 
 const signUpEndpoint: string = "/signup";
 const loginEndpoint: string = "/login";

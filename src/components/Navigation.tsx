@@ -21,21 +21,17 @@ export default function Navigation({ handleLogOut }: NavigationProps) {
                     />
                     <h3>Leaderboard</h3>
                 </Link>
-                <p>
-                    <Link className="link" to="/practice">
-                        Practice
-                    </Link>
-                </p>
-                <p>
-                    <Link className="link" to="/quiz">
-                        Play
-                    </Link>
-                </p>
-
-                <Link className="link" to='/clan'>Clan</Link>
-                <Link className="link" to="/profile">
-                    Profile
+                
+                <Link className="link" to="/practice">
+                    Practice
                 </Link>
+                {localStorage.getItem("token") && <Link className="link" to="/quiz">
+                    Play
+                </Link>}
+                {localStorage.getItem("token") && <Link className="link" to='/clan'>Clan</Link>}
+                {localStorage.getItem("token") && <Link className="link" to="/profile">
+                    Profile
+                </Link>}
                 {!localStorage.getItem("token") && (
                     <p>
                         <Link className="link" to="/login">
