@@ -115,8 +115,8 @@ export default function Quiz( {}:QuizProps ) {
                 <option value={5}>2-digit Subtraction</option>
                 <option value={6}>3-digit Subtraction</option>
                 <option value={7}>Basic Multiplication</option>
-                <option value={8}>Basic Division</option>
-                <option value={9}>2-digit Multiplication</option>
+                <option value={8}>2-digit Multiplication</option>
+                <option value={9}>Basic Division</option>
                 <option value={10}>Simplify Division</option>
                 <option value={11}>Arithmetic Sequence</option>
             </select>
