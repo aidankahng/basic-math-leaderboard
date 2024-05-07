@@ -1,30 +1,23 @@
-# React + TypeScript + Vite
+# Basic Math Leaderboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+visit the project here: basic-math-leaderboard.onrender.com
 
-Currently, two official plugins are available:
+## Core Idea:
+Lighthearted leaderboard for bragging rights, incentivises participants to answer questions to rack up points without penalizing mistakes. No need to be perfect, just try! More advanced topics earn more points sothe incentive is to answer lots of questions at just the level you are comfortable at.
+Allowing for clan creation additionally allows friends / learners to directly compare scores without worrying about the global leaderboard.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Notes / Future Updates:
+- Point scaling needs work if used to push students to try problems outside of their current comfort zone.
+- Larger variety of questions
+- The minimal UI needs reworking
 
-## Expanding the ESLint configuration
+Known Bugs:
+- Buttons are sometimes transparent
+- Long server downtime (may take up to 2 mins to boot up)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Tech:
+- React/Vite Node.js Framework
+- using Axios HTTP Client
+- Written in Typescript
+- with Vanilla CSS & HTML
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
