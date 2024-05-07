@@ -1,6 +1,6 @@
 # Basic Math Leaderboard
 
-visit the project here: basic-math-leaderboard.onrender.com
+visit the project here: [basic-math-leaderboard.onrender.com](https://basic-math-leaderboard.onrender.com)
 
 ## Core Idea:
 Lighthearted leaderboard for bragging rights, incentivises participants to answer questions to rack up points without penalizing mistakes. No need to be perfect, just try! More advanced topics earn more points sothe incentive is to answer lots of questions at just the level you are comfortable at.
